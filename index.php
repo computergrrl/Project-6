@@ -4,8 +4,8 @@ include 'inc/config.php';
 $filter = ['status'=>'active'];
 if (isset($_GET['status'])) {
     $filter['status'] = filter_input(
-        INPUT_GET, 
-        'status', 
+        INPUT_GET,
+        'status',
         FILTER_SANITIZE_STRING
     );
 }

@@ -15,7 +15,7 @@ class ListingBasicIsObjectCreatedTest extends TestCase
       ];
 
       $listing = new ListingBasic($data);
-      $this->assertInstanceOf($listing, new Exception);
+      $this->assertEquals($listing, new ListingBasic($data));
   }
 
 }

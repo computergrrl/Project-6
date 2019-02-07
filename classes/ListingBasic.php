@@ -186,7 +186,7 @@ class ListingBasic
               $this->image = null;
               return false;
           }
-              define("BASE_URL","/");
+              
 
           if (substr($value, 0, 4) != 'http') {
               // $value = 'http://' . $value;

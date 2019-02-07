@@ -9,7 +9,7 @@ require __DIR__ .'/../classes/ListingBasic.php';
 
 use PHPUnit\Framework\TestCase;
 
-final class ListingImageTest extends TestCase
+class ListingImageTest extends TestCase
 {
     public function testNoImage()
     {
@@ -41,6 +41,6 @@ final class ListingImageTest extends TestCase
             'image' => 'images/listings/1.png',
         ];
         $listing = new ListingBasic($data);
-        $this->assertEquals(BASE_URL.'/'.$data['image'], $listing->getImage());
+        $this->assertEquals(BASE_URL .'/'.$data['image'], $listing->getImage());
     }
 }

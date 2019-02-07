@@ -2,8 +2,7 @@
 
 class ListingBasic
 {
-    private $image;
-    private $id, $title, $website, $email, $twitter;
+    private $id, $title, $website, $email, $twitter, $image;
     protected $status = 'basic';
 
     /**
@@ -74,7 +73,6 @@ class ListingBasic
     {
         return $this->title;
     }
-
 
     /**
      * Cleans up and sets the local property $title
@@ -169,6 +167,39 @@ class ListingBasic
         $this->status = trim(filter_var($value, FILTER_SANITIZE_STRING));
     }
 
+  //added a getImage method
+    public function getImage()
+    {
+            if(isset($this->image)) {
+                return $this->image;
+            } else {
+                return false;
+            }
+    }
+
+    public function setImage($value)
+    {
+      /*I got this most of code from the getWebsite method
+       and changed the variables */
+          $value = trim(filter_var($value, FILTER_SANITIZE_STRING));
+          if (empty($value)) {
+              $this->image = null;
+              return false;
+          }
+              define("BASE_URL","/");
+
+          if (substr($value, 0, 4) != 'http') {
+              // $value = 'http://' . $value;
+              $this->image  =  BASE_URL . '/' . $value;
+            } elseif (substr($value, 0, 4) == 'http') {
+          $this->image = $value;
+        }
+        return $this->image;
+  }
+
+
+
+
     /**
      * Convert the current object to an associative array of parameters
      * @return array of object parameters
@@ -176,26 +207,5 @@ class ListingBasic
     public function toArray()
     {
         return get_object_vars($this);
-    }
-
-    public function setImage($value)
-    {
-        $value = trim(filter_var($value, FILTER_SANITIZE_STRING));
-        if (empty($value)) {
-            $this->image = null;
-            return;
-        }
-        $this->image = $value;
-    }
-
-    public function getImage()
-    {
-        if (empty($this->image)) {
-            return false;
-        }
-        if (substr($this->image, 0, 4) == 'http' ) {
-            return $this->image;
-        }
-        return BASE_URL.'/'.$this->image;
     }
 }

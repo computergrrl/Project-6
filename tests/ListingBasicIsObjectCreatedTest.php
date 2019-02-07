@@ -7,6 +7,15 @@ use PHPUnit\Framework\TestCase;
 class ListingBasicIsObjectCreatedTest extends TestCase
 {
 
-    
+  public function testIsObject()
+  {
+      $data = [
+        'id' => '38',
+        'title' => 'Amber was here'
+      ];
+
+      $listing = new ListingBasic($data);
+      $this->assertInstanceOf($listing, new Exception);
+  }
 
 }

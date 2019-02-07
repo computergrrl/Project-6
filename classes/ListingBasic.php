@@ -75,6 +75,7 @@ class ListingBasic
         return $this->title;
     }
 
+
     /**
      * Cleans up and sets the local property $title
      * @param string $value to set property

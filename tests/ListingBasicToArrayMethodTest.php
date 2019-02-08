@@ -7,14 +7,15 @@ use PHPUnit\Framework\TestCase;
 class ListingBasicToArrayMethodTest extends TestCase
 {
 
+  /*Create $data array as property that all tests can access */
   public $data = [
-      'image' => '',
+
       'id' => '222',
       'title' => 'Amber is a rock star',
       'website' => 'http://www.example-website.com',
       'email' => 'anonymous@email.com',
       'twitter' => '@RandomPerson',
-      'status' => 'basic'
+
   ];
 
   public function testToArrayMethod()
@@ -22,13 +23,16 @@ class ListingBasicToArrayMethodTest extends TestCase
     $data = $this->data;
 
     $listing = new ListingBasic($data);
+
+    //set result of toArray method to the variable '$array'
     $array = $listing->toArray();
 
-    $this->assertContains($data['id'], $array);
-    $this->assertContains($data['title'], $array);
-    $this->assertContains($data['website'], $array);
-    $this->assertContains($data['email'], $array);
-    $this->assertContains($data['twitter'], $array);
+    //does each $array value equal the corresponding $data value?
+    $this->assertEquals($data['id'], $array['id']);
+    $this->assertEquals($data['title'], $array['title']);
+    $this->assertEquals($data['website'], $array['website']);
+    $this->assertEquals($data['email'], $array['email']);
+    $this->assertEquals($data['twitter'], '@' .$array['twitter']);
 
 
   }

@@ -10,6 +10,7 @@ class ListingPremiumGetDescriptionTest extends TestCase
 
 public function testGetDescription()
 {
+    //Create $data array to pass to object upon instantiation
     $data = [
       'id' => '96',
       'title' => 'This is a test',
@@ -18,6 +19,7 @@ public function testGetDescription()
 
       $listing = new ListingPremium($data);
 
+    //does getDescription method return value that equals $data['description']?
       $this->assertEquals(
         'This is a test of the emergency broadcast system',
         $listing->getDescription()

@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 class ListingBasicMethodTests extends TestCase
 {
 
+/*Create $data array as property that all tests can access */
 public $data = [
     'id' => '222',
     'title' => 'Amber is a rock star',
@@ -16,6 +17,7 @@ public $data = [
     'twitter' => '@RandomPerson',
 ];
 
+  //test getId()
   public function testGetIdMethod()
   {
       $listing = new ListingBasic($this->data);
@@ -23,6 +25,7 @@ public $data = [
       $this->assertTrue($listing->getID() == $id);
   }
 
+//test getTitle()
   public function testGetTitleMethod()
   {
       $listing = new ListingBasic($this->data);
@@ -30,6 +33,7 @@ public $data = [
       $this->assertTrue($listing->getTitle() == $title);
   }
 
+//test getWebsite()
   public function testGetWebsiteMethod()
   {
     $listing = new ListingBasic($this->data);
@@ -37,6 +41,7 @@ public $data = [
     $this->assertTrue($listing->getWebsite() == $website);
   }
 
+//test getEmail()
   public function testGetEmailMethod()
   {
     $listing = new ListingBasic($this->data);
@@ -44,6 +49,7 @@ public $data = [
     $this->assertTrue($listing->getEmail() == $email);
   }
 
+//test getTwitter()
   public function testGetTwitterMethod()
   {
     $listing = new ListingBasic($this->data);

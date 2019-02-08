@@ -11,7 +11,7 @@ class ListingPremiumStatusTest extends TestCase
   public function testStatus()
   {
 
-/*create an array to pass to ListingBasic Object*/
+  //Create $data array to pass to object upon instantiation
             $data = [
                'id' => '222',
             'title' => 'The Test'
@@ -21,7 +21,7 @@ class ListingPremiumStatusTest extends TestCase
 //call the getStatus method
       $status = $listing->getStatus();
 
-//does getStatus method return value equal to 'basic' ?
+//does getStatus method return value equal to 'premium' ?
       $this->assertEquals($status , 'premium');
 
   }

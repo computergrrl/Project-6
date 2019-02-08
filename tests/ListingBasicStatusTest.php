@@ -10,7 +10,7 @@ class ListingBasicStatusTest extends TestCase
   public function testStatus()
   {
 
-/*create an array to pass to ListingBasic Object*/
+  //Create $data array to pass to object upon instantiation
             $data = [
                'id' => '222',
             'title' => 'The Test'

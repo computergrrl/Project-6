@@ -12,14 +12,14 @@ class ListingFeaturedStatusTest extends TestCase
   public function testStatus()
   {
 
-/*create an array to pass to ListingBasic Object*/
+//Create $data array to use for object instantiation
             $data = [
                'id' => '222',
             'title' => 'The Test'
             ];
 
     $listing = new ListingFeatured($data);
-//call the getStatus method
+      //call the getStatus method
       $status = $listing->getStatus();
 
 //does getStatus method return value equal to 'featured' ?

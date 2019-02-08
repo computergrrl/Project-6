@@ -170,6 +170,9 @@ class ListingBasic
   //added a getImage method
     public function getImage()
     {
+          /*if image is set return that value. Otherwise if no
+          image is set (null value) then return false */
+
             if(isset($this->image)) {
                 return $this->image;
             } else {
@@ -179,18 +182,24 @@ class ListingBasic
 
     public function setImage($value)
     {
-      /*I got this most of code from the getWebsite method
-       and changed the variables */
+      /*I got a lot of this method's code from the getWebsite method
+       and changed a couple of variables */
+
           $value = trim(filter_var($value, FILTER_SANITIZE_STRING));
           if (empty($value)) {
               $this->image = null;
               return false;
           }
-              
 
+          /* If the first 4 characters of image value are not 'http'
+          then assume $value is a local file and add BASE_URL
+           directory to beginning of $value so that file can be located
+          in BASE_URL directory  */
           if (substr($value, 0, 4) != 'http') {
-              // $value = 'http://' . $value;
               $this->image  =  BASE_URL . '/' . $value;
+
+          /*Elseif first 4 characters of image value are 'http' then assume
+          $value is a web link and just return that value */
             } elseif (substr($value, 0, 4) == 'http') {
           $this->image = $value;
         }

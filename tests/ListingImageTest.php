@@ -13,6 +13,7 @@ class ListingImageTest extends TestCase
 {
     public function testNoImage()
     {
+      //Create $data array to pass to object upon instantiation
         $data = [
             'id' => 1,
             'title' => 'Test Title',
@@ -24,6 +25,7 @@ class ListingImageTest extends TestCase
     }
     public function testFullPathImage()
     {
+      //Create $data array to pass to object upon instantiation
         $data = [
             'id' => 1,
             'title' => 'Test Title',
@@ -35,8 +37,10 @@ class ListingImageTest extends TestCase
     }
     public function testBuildPathImage()
     {
+      //Set BASE_URL to root directory
       define("BASE_URL","/");
-      
+
+      //Create $data array to pass to object upon instantiation
         $data = [
             'id' => 1,
             'title' => 'Test Title',
